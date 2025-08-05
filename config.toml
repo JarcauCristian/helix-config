@@ -1,0 +1,51 @@
+theme = "bogster"
+
+[editor]
+true-color = true
+line-number = "relative"
+mouse = false
+bufferline = "always"
+auto-completion = true
+auto-format = true
+auto-info = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+git-ignore = true
+
+[keys.normal.";"]
+p = ":clipboard-paste-after"
+b = ":clipboard-paste-before"
+y = ":clipboard-yank"
+r = ":clipboard-paste-replace"
+
+[keys.insert]
+up = "no_op"
+down = "no_op"
+left = "no_op"
+right = "no_op"
+pageup = "no_op"
+pagedown = "no_op"
+home = "no_op"
+end = "no_op"
+
+[keys.normal.g]
+a = "code_action"
+
+[keys.normal."+"]
+b = ":run-shell-command cargo build"
+t = ":run-shell-command cargo test"
+p = ":run-shell-command cargo build -r"
+f = ":run-shell-command leptosfmt ./**/*.rs"
+r = ":run-shell-command ruff format"
+
+[keys.normal]
+C-s = ":w"
+C-b = ":buffer-close"
+esc = ["collapse_selection", "keep_primary_selection"]
+C-g = [":new", ":insert-output lazygit", ":buffer-close!", ":redraw"]

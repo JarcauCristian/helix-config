@@ -1,0 +1,39 @@
+# Languages
+[[language]]
+name = "rust"
+language-servers = ["rust-analyzer", "cspell"]
+
+[[language]]
+name = "python"
+language-servers = ["pylsp", "cspell"]
+
+[language-server.pylsp.config.pylsp]
+plugins.ruff.enabled = true
+plugins.black.enabled = true
+
+[[language]]
+name = "markdown"
+language-servers = ["mdpls", "cspell"]
+
+[[language]]
+name = "yaml"
+language-servers = ["cspell"]
+
+# Language servers
+
+[language-server.mdpls]
+command = "mdpls"
+config = { markdown.preview.auto = true, markdown.preview.browser = "firefox" }
+
+[language-server.cspell]
+command = "cspell-lsp"
+args = ["--stdio"]
+
+[language-server.rust-analyzer]
+config = { procMacro = { ignored = { leptos_macro = [ "component", "server" ] } } }
+
+[[language]]
+name = "gherkin"
+scope = "source.feature"
+file-types = ["feature"]
+language-servers = ["cspell"]
